@@ -1,0 +1,16 @@
+<form [formGroup]="formGroup">
+  <fieldset *ngFor="let fieldset of fieldsets">
+    <legend>{{ fieldset.legend }}</legend>
+    <div class="input-box" *ngFor="let f of fieldset.fields">
+        <mat-form-field>
+            <input 
+              matInput 
+              type="{{f.type}}" 
+              placeholder="{{ f.placeholder }}" 
+              [formControl]="formGroup.controls[f.key]"
+              >
+          </mat-form-field>
+    </div>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
