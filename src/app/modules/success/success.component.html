@@ -1,0 +1,13 @@
+<div class="success">
+  <div class="icon">
+    <mat-icon>{{success.matIcon}}</mat-icon>
+  </div>
+  <div class="message">
+    {{ success.messageText }}
+  </div>
+  <div class="actions">
+    <button mat-raised-button (click)="success.onSuccess()">
+      {{ success.primaryButtonText }}
+    </button>
+  </div>
+</div>

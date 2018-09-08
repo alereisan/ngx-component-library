@@ -5,6 +5,7 @@
   <fieldset *ngFor="let fieldset of fieldsets" [disabled]="loading">
     <legend>{{ fieldset.legend }}</legend>
     <mat-spinner *ngIf="loading"></mat-spinner>
+    <app-success [success]="success"></app-success>
     <div class="fields" *ngIf="!loading">
         <div class="input-box" *ngFor="let f of fieldset.fields">
             <mat-form-field>
