@@ -2,6 +2,8 @@
 <app-form 
   [title]="formTitle" 
   [fieldsets]="fildsets"
-  (submit)="onFormSubmit($event)"
+  [loading]="formLoading"
+  (submitEvent)="onFormSubmit($event)"
+  (cancelEvent)="onFormCancel($event)"
   >
 </app-form>

@@ -10,7 +10,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
   @Input() fieldsets: Array<Fieldset>;
   @Input() title: string;
-  @Output() submit: EventEmitter<Array<Fieldset>> = new EventEmitter();
+  @Input() loading: boolean;
+  @Output() submitEvent: EventEmitter<Array<Fieldset>> = new EventEmitter();
+  @Output() cancelEvent: EventEmitter<any> = new EventEmitter();
 
   formGroup: FormGroup;
 
@@ -36,6 +38,18 @@ export class FormComponent implements OnInit {
       }
     )
     this.formGroup = this.formBuilder.group(fields)
+  }
+
+  onFormSubmit() {
+    this.loading = true;
+    this.submitEvent.next(this.formGroup.value);
+    setTimeout(() => {
+      this.loading = false;
+    }, 5000);
+  }
+
+  onCancel() {
+    this.cancelEvent.next('canceled');
   }
 
 }

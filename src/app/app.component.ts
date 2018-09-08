@@ -12,9 +12,7 @@ import {
 export class AppComponent implements OnInit {
   h1 = "Header 1";
   formTitle = 'Testform 1';
-
   fildsets: Array<Fieldset> = [];
-
   formFields = [
     {
       key: 'firstName',
@@ -67,6 +65,14 @@ export class AppComponent implements OnInit {
       fields: this.formFields
     }
     this.fildsets.push(f);
+  }
+
+  onFormSubmit(event) {
+    console.log("Form Submitted: ", event);
+  }
+
+  onFormCancel(event) {
+    console.log("Form Canceled: ", event);
   }
 
 }
