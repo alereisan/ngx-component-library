@@ -5,8 +5,8 @@
   <fieldset *ngFor="let fieldset of fieldsets" [disabled]="loading">
     <legend>{{ fieldset.legend }}</legend>
     <mat-spinner *ngIf="loading"></mat-spinner>
-    <app-success [success]="success"></app-success>
-    <div class="fields" *ngIf="!loading">
+    <app-success *ngIf="formSuccess" [success]="success"></app-success>
+    <div class="fields" *ngIf="!loading && !formSuccess">
         <div class="input-box" *ngFor="let f of fieldset.fields">
             <mat-form-field>
                 <input 
@@ -20,16 +20,17 @@
                     {{ f.placeholder }} is required!
                   </p>
                 </div>
-              </mat-form-field>
+            </mat-form-field>
         </div>
     </div>
-    
-    <button mat-raised-button type="submit" [disabled]="loading">
-      <span *ngIf="!loading">Submit</span>
-      <span *ngIf="loading">Submitting...</span>
-    </button>
-    <button class="cancel" mat-button type="button" (click)="onCancel()">
-      Cancel
-    </button>
+    <div class="fieldset-actions" *ngIf="!loading && !formSuccess">
+      <button mat-raised-button type="submit" [disabled]="loading">
+          <span *ngIf="!loading">Submit</span>
+          <span *ngIf="loading">Submitting...</span>
+      </button>
+      <button class="cancel" mat-button type="button" (click)="onCancel()">
+          Cancel
+      </button>
+    </div>
   </fieldset>
 </form>

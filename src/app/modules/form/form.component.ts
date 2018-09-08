@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Fieldset, Field } from './form.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Success } from '../success/success.model';
 
 @Component({
   selector: 'app-form',
@@ -13,8 +14,10 @@ export class FormComponent implements OnInit {
   @Input() loading: boolean;
   @Output() submitEvent: EventEmitter<Array<Fieldset>> = new EventEmitter();
   @Output() cancelEvent: EventEmitter<any> = new EventEmitter();
+  @Input() success: Success;
 
   formGroup: FormGroup;
+  formSuccess = false;
 
   constructor(
     private formBuilder: FormBuilder
@@ -48,6 +51,7 @@ export class FormComponent implements OnInit {
     this.loading = true;
     this.submitEvent.next(this.formGroup.value);
     setTimeout(() => {
+      this.formSuccess = true;
       this.loading = false;
     }, 5000);
   }

@@ -3,6 +3,7 @@ import {
   Field, 
   Fieldset 
 } from './modules/form/form.model';
+import { Success } from './modules/success/success.model';
 
 @Component({
   selector: 'app-root',
@@ -52,6 +53,13 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  formSuccess: Success = {
+    matIcon: 'check',
+    messageText: 'Congratulations! Form Successfully submitted.',
+    onSuccess: this.onFormSuccess(),
+    primaryButtonText: 'Ok, cool.'
+  };
+
 
   ngOnInit() {
     this.generateFieldsets();
@@ -73,6 +81,10 @@ export class AppComponent implements OnInit {
 
   onFormCancel(event) {
     console.log("Form Canceled: ", event);
+  }
+
+  onFormSuccess() {
+    console.log("Cool.")
   }
 
 }

@@ -7,7 +7,9 @@ import {
   MatCheckboxModule,
   MatInputModule,
   MatProgressSpinnerModule,
+  MatIconModule,
 } from '@angular/material';
+import { SuccessModule } from '../success/success.module';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import {
     MatInputModule,
     MatProgressSpinnerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SuccessModule,
+    MatIconModule
   ],
   declarations: [FormComponent],
   exports: [FormComponent]
