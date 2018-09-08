@@ -41,6 +41,10 @@ export class FormComponent implements OnInit {
   }
 
   onFormSubmit() {
+    if (this.formGroup.invalid) {
+      this.markFormGroupTouched(this.formGroup);
+      return;
+    }
     this.loading = true;
     this.submitEvent.next(this.formGroup.value);
     setTimeout(() => {
@@ -50,6 +54,16 @@ export class FormComponent implements OnInit {
 
   onCancel() {
     this.cancelEvent.next('canceled');
+  }
+
+  markFormGroupTouched(formGroup: FormGroup) {
+    (<any>Object).values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+
+      if (control.controls) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
 
 }

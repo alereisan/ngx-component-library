@@ -6,6 +6,7 @@ import {
   MatButtonModule, 
   MatCheckboxModule,
   MatInputModule,
+  MatProgressSpinnerModule,
 } from '@angular/material';
 
 @NgModule({
@@ -14,6 +15,7 @@ import {
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule
   ],
