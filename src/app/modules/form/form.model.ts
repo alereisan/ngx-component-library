@@ -6,12 +6,13 @@ export class Fieldset   {
 }
 
 export class Field   {
-    key: string;
-    value: string;
-    type: string;
-    sortIndex: number;
-    flex: number;
+    key?: string;
+    value?: string;
+    type?: string;
+    sortIndex?: number;
+    flex?: number;
     label?: string;
-    placeholder: string;
-    required: boolean;
+    placeholder?: string;
+    required?: boolean;
+    bufferField?: boolean;
 }

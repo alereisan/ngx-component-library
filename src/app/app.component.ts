@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
       placeholder: 'First Name',
       type: 'text',
       sortIndex: 0,
-      flex: 100,
+      flex: 50,
       required: true
     },
     {
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
       placeholder: 'Last Name',
       type: 'text',
       sortIndex: 2,
-      flex: 100,
+      flex: 50,
       required: true
     },
     {
@@ -39,8 +39,11 @@ export class AppComponent implements OnInit {
       placeholder: 'E-Mail',
       type: 'email',
       sortIndex: 3,
-      flex: 100,
+      flex: 50,
       required: true
+    },
+    {
+      bufferfield: true
     },
     {
       key: 'password',
@@ -48,7 +51,7 @@ export class AppComponent implements OnInit {
       placeholder: 'Password',
       type: 'password',
       sortIndex: 4,
-      flex: 100,
+      flex: 50,
       required: true
     }
   ];
